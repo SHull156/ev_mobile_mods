@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E. V. Mobile Mods - Electric Vehicle Specialist</title>
+    <title>EV Mobile Mods - Electric Vehicle Specialist</title>
     <meta
         name = "description"
         content = "Electric and hybrid vehicle servicing, diagnostics, and repairs. Fast, friendly, local support. Call to book in."/>
@@ -13,14 +13,23 @@
 </head>
 <body>
     <header class="site-header">
-        <a class ="brand" href="#">E. V. Mobile Mods</a>
+        <a class ="brand" href="#">EV Mobile Mods</a>
+
+        <!--Hamburger menu for mobile-->
+        <a href="#" class="menu-toggle" aria-label="Open menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+
+        <!--Navigation-->
         <nav class="nav">
-            <a href="#services"></a>
-            <a href="#about"></a>
-            <a href="#contact"></a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </nav>
 
-        <a class ="cta" href="tel: +447000000000">Call now</a>
+        <a class ="cta" href="tel: +447508352627">Call now</a>
     </header>
 
     <main>
@@ -36,7 +45,43 @@
 
         <section id = "services">
             <h2>Services</h2>
-            <p>Service list coming soon.</p>
+            <h3>All EV modifcations offered</h3>
+            
+            <ul class="services-list">
+                <li>
+                    <strong>Chassis</strong>
+                    <ul>
+                        <li>Air-ride fitting</li>
+                        <li>Coilovers fitting and adjustments</li>
+                        <li>Polybush fitting</li>
+                        <li>Camber arms</li>
+                        <li>Anti roll bars</li>
+                        <li>Lowering springs</li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <strong>Interior customisations</strong>
+                    <ul>
+                        <li>After market seat fitting</li>
+                        <li>Seat heating and cooling retro-fitted</li>
+                        <li>Steering wheel</li>
+                        <li>Wiring</li>
+                        <li>Ambient lighting</li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <strong>Exterior customisations</strong>
+                    <ul>
+                        <li>Lighting</li>
+                        <li>Cameras</li>
+                        <li>Splitter and spoiler fitting</li>
+                        <li>Auto-present door handles</li>
+                        <li>Light-up door handles</li>
+                    </ul>
+            </li>
+            
         </section>
 
         <section id ="about">
@@ -55,7 +100,7 @@
     </main>
 
     <footer class="site-footer">
-        <small>© <span id = "year"></span> E. V. Mobile Mods</small>
+        <small>© <span id = "year"></span> EV Mobile Mods</small>
     </footer>
 
     <script src="script.js"></script>
