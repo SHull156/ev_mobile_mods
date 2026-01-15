@@ -7,15 +7,17 @@
   padding: 0;
 }
 
-/* ROOT VARIABLES - colours thorought*/
+/* ROOT VARIABLES */
 :root {
   --bg: #ffffff;
   --text: #171a20;
   --muted: #5c5e62;
   --accent: #000000;
+  --tesla-blue: #1e90ff;
+  --tesla-blue-soft: rgba(30, 144, 255, 0.08);
 }
 
-/* GLOBAL STYLES */
+/* GLOBAL */
 html {
   scroll-behavior: smooth;
 }
@@ -55,9 +57,11 @@ body {
   font-size: 0.9rem;
   color: var(--text);
   opacity: 0.85;
+  transition: color 0.2s ease;
 }
 
 .nav a:hover {
+  color: var(--tesla-blue);
   opacity: 1;
 }
 
@@ -81,13 +85,14 @@ body {
 
 /* HERO SECTION */
 .hero {
-  min-height: 100vh;
-  padding-top: 6rem;
+  min-height: auto;
+  padding: 5rem 2rem 2.5rem; /* top | sides | bottom */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  gap: 0.75rem; /* space between h1, p, buttons */
 }
 
 .hero h1 {
@@ -109,7 +114,7 @@ body {
 }
 
 .button {
-  display: inline-block;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.75rem 2.5rem;
@@ -131,51 +136,147 @@ body {
 }
 
 .button.secondary {
-  border: 1px solid var(--accent);
-  color: var(--accent);
+  border: 1px solid var(--tesla-blue);
+  color: var(--tesla-blue);
 }
 
 .button.secondary:hover {
-  background: var(--accent);
+  background: var(--tesla-blue);
   color: #fff;
   transform: translateY(-1px);
 }
 
 /* SECTIONS */
 section {
-  padding: 6rem 2rem;
+  padding: 3.5rem 2rem;   /* consistent vertical rhythm */
   max-width: 1200px;
   margin: 0 auto;
+  scroll-margin-top: 90px; 
 }
 
 section h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+section h2:after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--tesla-blue);
+  margin-top: 0.5rem;
+  border-radius: 2px;
 }
 
 section p {
   color: var(--muted);
 }
 
-/*Hamburger bars*/
+section p:last-child {
+  margin-bottom: 0;
+}
+
+/* SERVICES LIST */
+.services-list {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.services-list ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.services-list ul li {
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+
+.services-list > li {
+  list-style: none; 
+  flex: 1;
+  background: var(--tesla-blue-soft);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+}
+
+.services-list > li > strong {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--tesla-blue);
+  margin-bottom: 1rem;
+}
+
+/* ABOUT */
+#about p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* CONTACT */
+#contact a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#contact a:hover {
+  color: var(--tesla-blue);
+  text-decoration: underline;
+}
+
+/* FOOTER */
+.site-footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* HAMBURGER MENU */
 .menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25px;
-    height: 20px;
-    cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
 }
 
-.menu-toggle .bar{
-    height: 3px;
-    width: 100%;
-    background-color: var(--text);
-    border-radius: 2px;
-    transition: all 0.3s ease;
+.menu-toggle .bar {
+  height: 3px;
+  width: 100%;
+  background-color: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
+/* HAMBURGER OPEN ANIMATION */
+.menu-toggle.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
+  .site-header {
+    padding: 1rem;
+  }
+
   .nav {
     display: none;
     flex-direction: column;
@@ -192,7 +293,7 @@ section p {
   .nav.visible {
     display: flex;
   }
-  
+
   .menu-toggle {
     display: flex;
   }
@@ -200,64 +301,108 @@ section p {
   .cta {
     display: none;
   }
-}
-
-
-
-
-/* SERVICES LIST */
-
-/* Remove bullets from top-level category items */
-.services-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-/* Sub-items can have bullets */
-.services-list ul {
-  list-style: disc;
-  padding-left: 1.5rem; /* indent for clarity */
-}
-
-/* Make category header bold and separated */
-.services-list > li > strong {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-
-/* CONTACT */
-#contact a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-#contact a:hover {
-  text-decoration: underline;
-}
-
-/* FOOTER */
-.site-footer {
-  padding: 2rem;
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .site-header {
-    padding: 1rem;
-  }
-
-  .nav {
-    display: none;
-  }
 
   .hero-actions {
+    flex-direction: column;
+  }
+}
+
+/* CAROUSEL SECTION */
+#carousel {
+  padding-top: 2rem;     /* closer to hero */
+  padding-bottom: 3.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+#carousel h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+#carousel h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--tesla-blue);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 200px; /* size on screen, scales down on smaller screens */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 200px; /* keeps square aspect ratio */
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(30,144,255,0.4); /* Tesla-blue shadow */
+}
+
+/* Buttons */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--tesla-blue);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.carousel-button:hover {
+  background: #104e8b; /* darker blue on hover */
+}
+
+.carousel-button.prev {
+  left: 0.5rem;
+}
+
+.carousel-button.next {
+  right: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 150px;
+    height: 150px;
+  }
+
+  .carousel-button {
+    font-size: 1.2rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .services-list {
     flex-direction: column;
   }
 }
