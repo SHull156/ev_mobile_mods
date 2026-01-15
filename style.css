@@ -13,8 +13,16 @@
   --text: #171a20;
   --muted: #5c5e62;
   --accent: #000000;
-  --tesla-blue: #1e90ff;
-  --tesla-blue-soft: rgba(30, 144, 255, 0.08);
+
+  /* Tesla red */
+  --tesla-red: #E82127;
+  --tesla-red-dark: #C21C22;
+  --tesla-red-soft: rgba(232, 33, 39, 0.1);
+
+  /* Shadows */
+  --tesla-red-shadow-soft: rgba(232, 33, 39, 0.15);
+  --tesla-red-shadow: rgba(232, 33, 39, 0.25);
+  --tesla-red-shadow-strong: rgba(232, 33, 39, 0.35);
 }
 
 /* GLOBAL */
@@ -61,7 +69,7 @@ body {
 }
 
 .nav a:hover {
-  color: var(--tesla-blue);
+  color: var(--tesla-red);
   opacity: 1;
 }
 
@@ -136,22 +144,22 @@ body {
 }
 
 .button.secondary {
-  border: 1px solid var(--tesla-blue);
-  color: var(--tesla-blue);
+  border: 1px solid var(--tesla-red);
+  color: var(--tesla-red);
 }
 
 .button.secondary:hover {
-  background: var(--tesla-blue);
+  background: var(--tesla-red);
   color: #fff;
   transform: translateY(-1px);
 }
 
 /* SECTIONS */
 section {
-  padding: 3.5rem 2rem;   /* consistent vertical rhythm */
+  padding: 3.5rem 2rem; /* consistent vertical rhythm */
   max-width: 1200px;
   margin: 0 auto;
-  scroll-margin-top: 90px; 
+  scroll-margin-top: 90px;
 }
 
 section h2 {
@@ -160,12 +168,12 @@ section h2 {
   position: relative;
 }
 
-section h2:after {
+section h2::after {
   content: '';
   display: block;
   width: 50px;
   height: 3px;
-  background: var(--tesla-blue);
+  background: var(--tesla-red);
   margin-top: 0.5rem;
   border-radius: 2px;
 }
@@ -196,19 +204,20 @@ section p:last-child {
 }
 
 .services-list > li {
-  list-style: none; 
+  list-style: none;
   flex: 1;
-  background: var(--tesla-blue-soft);
+  background: var(--tesla-red-soft);
   border-radius: 16px;
   padding: 2rem;
   backdrop-filter: blur(8px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
 .services-list > li > strong {
   display: block;
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--tesla-blue);
+  color: var(--tesla-red);
   margin-bottom: 1rem;
 }
 
@@ -228,7 +237,7 @@ section p:last-child {
 }
 
 #contact a:hover {
-  color: var(--tesla-blue);
+  color: var(--tesla-red);
   text-decoration: underline;
 }
 
@@ -271,6 +280,72 @@ section p:last-child {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* CAROUSEL SECTION */
+#carousel {
+  padding-top: 2rem;     /* closer to hero */
+  padding-bottom: 3.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.carousel-container {
+  position: relative; /* IMPORTANT: anchors absolute buttons */
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item {
+  width: 400px;
+  flex-shrink: 0;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px var(--tesla-red-shadow);
+}
+
+/* Carousel Buttons */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--tesla-red);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.carousel-button:hover {
+  background: var(--tesla-red-dark);
+}
+
+.carousel-button.prev {
+  left: 0.5rem;
+}
+
+.carousel-button.next {
+  right: 0.5rem;
+}
+
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .site-header {
@@ -305,104 +380,51 @@ section p:last-child {
   .hero-actions {
     flex-direction: column;
   }
-}
 
-/* CAROUSEL SECTION */
-#carousel {
-  padding-top: 2rem;     /* closer to hero */
-  padding-bottom: 3.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-
-#carousel h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-#carousel h2::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: var(--tesla-blue);
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
-}
-
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.carousel-item {
-  flex: 0 0 auto;
-  width: 200px; /* size on screen, scales down on smaller screens */
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 200px; /* keeps square aspect ratio */
-  object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.carousel-item img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(30,144,255,0.4); /* Tesla-blue shadow */
-}
-
-/* Buttons */
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--tesla-blue);
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-  transition: background 0.2s ease;
-}
-
-.carousel-button:hover {
-  background: #104e8b; /* darker blue on hover */
-}
-
-.carousel-button.prev {
-  left: 0.5rem;
-}
-
-.carousel-button.next {
-  right: 0.5rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .carousel-item {
-    width: 150px;
-    height: 150px;
-  }
-
-  .carousel-button {
-    font-size: 1.2rem;
-    padding: 0.3rem 0.6rem;
-  }
-
+  /* Services cards stack */
   .services-list {
     flex-direction: column;
+  }
+
+  /* Mobile carousel: full width, max 400px, snap to center */
+  #carousel {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .carousel-container {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .carousel-track {
+    gap: 0.75rem;
+    transition: none; /* avoid fighting native scroll */
+  }
+
+  .carousel-item {
+    width: 100%;
+    max-width: 400px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  /* Hide arrows on mobile (scroll + snap instead) */
+  .carousel-button {
+    display: none;
   }
 }
