@@ -1,4 +1,6 @@
-/* CSS RESET */
+/* =========================
+   CSS RESET
+========================= */
 *,
 *::before,
 *::after {
@@ -7,7 +9,9 @@
   padding: 0;
 }
 
-/* ROOT VARIABLES */
+/* =========================
+   ROOT VARIABLES
+========================= */
 :root {
   --bg: #ffffff;
   --text: #171a20;
@@ -25,7 +29,9 @@
   --tesla-red-shadow-strong: rgba(232, 33, 39, 0.35);
 }
 
-/* GLOBAL */
+/* =========================
+   GLOBAL
+========================= */
 html {
   scroll-behavior: smooth;
 }
@@ -38,7 +44,9 @@ body {
   line-height: 1.5;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 .site-header {
   position: fixed;
   top: 0;
@@ -91,10 +99,12 @@ body {
   background: #222;
 }
 
-/* HERO SECTION */
+/* =========================
+   HERO
+========================= */
 .hero {
   min-height: auto;
-  padding: 5rem 2rem 2rem; /* slightly tighter bottom */
+  padding: 5rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,10 +122,9 @@ body {
 .hero p {
   max-width: 600px;
   color: var(--muted);
-  margin-bottom: 1.25rem; /* tighter */
+  margin-bottom: 1.25rem;
 }
 
-/* HERO BUTTONS */
 .hero-actions {
   display: flex;
   gap: 1rem;
@@ -154,9 +163,11 @@ body {
   transform: translateY(-1px);
 }
 
-/* SECTIONS (GLOBAL RHYTHM) */
+/* =========================
+   SECTIONS (GLOBAL RHYTHM)
+========================= */
 section {
-  padding: 2.25rem 2rem; /* tighter, consistent rhythm */
+  padding: 2.25rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   scroll-margin-top: 90px;
@@ -169,7 +180,7 @@ section h2 {
 }
 
 section h2::after {
-  content: '';
+  content: "";
   display: block;
   width: 50px;
   height: 3px;
@@ -186,10 +197,77 @@ section p:last-child {
   margin-bottom: 0;
 }
 
-/* SERVICES LIST */
+/* =========================
+   CAROUSEL
+========================= */
+#carousel {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 0; /* avoid double vertical spacing */
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item {
+  width: 400px;
+  flex-shrink: 0;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px var(--tesla-red-shadow);
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--tesla-red);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.carousel-button:hover {
+  background: var(--tesla-red-dark);
+}
+
+.carousel-button.prev {
+  left: 0.5rem;
+}
+
+.carousel-button.next {
+  right: 0.5rem;
+}
+
+/* =========================
+   SERVICES
+========================= */
 .services-list {
   display: flex;
-  gap: 1.5rem;       /* slightly tighter than 2rem */
+  gap: 1.5rem;
   margin-top: 1.25rem;
 }
 
@@ -208,7 +286,7 @@ section p:last-child {
   flex: 1;
   background: var(--tesla-red-soft);
   border-radius: 16px;
-  padding: 1.75rem; /* slightly tighter than 2rem */
+  padding: 1.75rem;
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
@@ -221,18 +299,18 @@ section p:last-child {
   margin-bottom: 1rem;
 }
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 #about p {
   line-height: 1.7;
-  margin-bottom: 1.25rem; /* tighter */
+  margin-bottom: 1.25rem;
   text-align: left;
 }
 
-/* CREDENTIALS */
-#credentials {
-  margin-top: 0; /* remove extra spacing */
-}
-
+/* =========================
+   CREDENTIALS
+========================= */
 .credentials-list {
   list-style: none;
   padding: 0;
@@ -277,7 +355,7 @@ section p:last-child {
   justify-content: center;
   background: rgba(232, 33, 39, 0.12);
   border-radius: 50%;
-  margin-left: 0.25rem; /* keep away from the red bar */
+  margin-left: 0.25rem;
 }
 
 .credentials-list .icon svg {
@@ -290,7 +368,38 @@ section p:last-child {
   flex: 1;
 }
 
-/* CONTACT */
+/* =========================
+   TESTIMONIALS
+========================= */
+.testimonials-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.testimonials-list li {
+  background: var(--tesla-red-soft);
+  border-radius: 14px;
+  padding: 1.25rem 1.75rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.testimonials-list p {
+  margin-bottom: 0.75rem;
+  font-style: italic;
+  color: var(--text);
+}
+
+.testimonials-list span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* =========================
+   CONTACT
+========================= */
 #contact a {
   color: var(--text);
   text-decoration: none;
@@ -302,7 +411,7 @@ section p:last-child {
   text-decoration: underline;
 }
 
-/* SOCIAL LINKS */
+/* Social */
 .social-links {
   margin-top: 1rem;
 }
@@ -311,14 +420,11 @@ section p:last-child {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-
   color: var(--text);
   text-decoration: none;
   font-size: 0.95rem;
-
   padding: 0.4rem 0.75rem;
   border-radius: 999px;
-
   transition: color 0.2s ease, background 0.2s ease;
 }
 
@@ -333,8 +439,54 @@ section p:last-child {
   color: var(--tesla-red);
 }
 
+/* Contact bottom row: Instagram + logos */
+.contact-bottom-row {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
 
-/* FOOTER */
+/* Don’t let social block stretch */
+.social-links {
+  flex: 0 0 auto;
+}
+
+/* Logo marquee */
+.partner-marquee {
+  flex: 1 1 auto;
+  overflow: hidden;
+  position: relative;
+  max-width: 760px;
+  margin-left: auto;
+}
+
+.partner-track {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+}
+
+/* Logos */
+.partner-track img {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  filter: grayscale(100%);
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.partner-track img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* =========================
+   FOOTER
+========================= */
 .site-footer {
   padding: 2rem;
   text-align: center;
@@ -342,7 +494,9 @@ section p:last-child {
   color: var(--muted);
 }
 
-/* HAMBURGER MENU */
+/* =========================
+   HAMBURGER MENU
+========================= */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -360,7 +514,6 @@ section p:last-child {
   transition: all 0.3s ease;
 }
 
-/* HAMBURGER OPEN ANIMATION */
 .menu-toggle.open .bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -373,71 +526,9 @@ section p:last-child {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* CAROUSEL SECTION (no extra padding; global section handles it) */
-#carousel {
-  text-align: center;
-  padding-top: 1rem;   /* slightly closer to hero */
-  padding-bottom: 0;   /* avoid double vertical spacing */
-}
-
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.carousel-item {
-  width: 400px;
-  flex-shrink: 0;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.carousel-item img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px var(--tesla-red-shadow);
-}
-
-/* Carousel Buttons */
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--tesla-red);
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-  transition: background 0.2s ease;
-}
-
-.carousel-button:hover {
-  background: var(--tesla-red-dark);
-}
-
-.carousel-button.prev {
-  left: 0.5rem;
-}
-
-.carousel-button.next {
-  right: 0.5rem;
-}
-
-/* MOBILE RESPONSIVE */
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
   .site-header {
     padding: 1rem;
@@ -472,7 +563,7 @@ section p:last-child {
     flex-direction: column;
   }
 
-  /* Services cards stack */
+  /* Services stack */
   .services-list {
     flex-direction: column;
   }
@@ -514,12 +605,11 @@ section p:last-child {
     max-height: 400px;
   }
 
-  /* Hide arrows on mobile */
   .carousel-button {
     display: none;
   }
 
-  /* Credentials mobile sizing */
+  /* Credentials mobile */
   .credentials-list {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -539,4 +629,48 @@ section p:last-child {
     width: 16px;
     height: 16px;
   }
+
+  /* Contact row stacks */
+  .contact-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .partner-marquee {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  /* Auto-scrolling mini carousel */
+  .partner-track {
+    animation: partner-scroll 18s linear infinite;
+    gap: 1rem;
+  }
+
+  .partner-track img {
+    height: 30px;
+  }
 }
+
+/* Smooth endless loop (track is duplicated in HTML) */
+@keyframes partner-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .partner-track {
+    animation: none !important;
+  }
+}
+
+/* DESKTOP: show only first set of 8 partner logos */
+@media (min-width: 769px) {
+  .partner-track img:nth-child(n+9) {
+    display: none;
+  }
+}
+
