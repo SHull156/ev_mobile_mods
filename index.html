@@ -45,24 +45,38 @@
 
     <!--Carousel-->
 
-    <section id ="carousel">
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <div class="carousel-item"><img src="images/ev1.jpg" alt="Image description"></div>
-                <div class="carousel-item"><img src="images/ev2.jpg" alt="Image description"></div>
-                <div class="carousel-item"><img src="images/ev3.jpg" alt="Image description"></div>
-                <div class="carousel-item"><img src="images/ev4.jpg" alt="Image description"></div>
-                <div class="carousel-item"><img src="images/ev5.jpg" alt="Image description"></div>
-                <div class="carousel-item"><img src="images/ev6.jpg" alt="Image description"></div>
-                <div class="carousel-item"><img src="images/ev7.jpg" alt="Image description"></div>
-                <div class="carousel-item"><img src="images/ev8.jpg" alt="Image description"></div>
-                <div class="carousel-item"><img src="images/ev9.jpg" alt="Image description"></div>
-                <div class="carousel-item"><img src="images/ev10.jpg" alt="Image description"></div>
-            </div>
-            <button class="carousel-button prev" aria-label="Previous">&lt;</button>
-            <button class="carousel-button next" aria-label="Next">&gt;</button>
-        </div>
-    </section>
+<section id="carousel">
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="carousel-item"><img src="images/ev1.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev2.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev3.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev4.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev5.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev6.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev7.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev8.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev9.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev10.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev11.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev12.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev13.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev14.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev15.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev16.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev17.jpg" alt="Image description"></div>
+      <div class="carousel-item"><img src="images/ev18.jpg" alt="Image description"></div>
+    </div>
+
+    <button class="carousel-button prev" aria-label="Previous">&lt;</button>
+    <button class="carousel-button next" aria-label="Next">&gt;</button>
+  </div>
+
+  <!-- UI -->
+  <div class="carousel-ui" aria-hidden="true">
+    <div class="carousel-dots"></div>
+  </div>
+</section>
 
     <!-- Services Section -->
     <section id="services">
@@ -237,6 +251,32 @@
     <small>© <span id="year"></span> EV Mobile Mods</small>
   </footer>
 
+  <!-- Carousel gallery overlay (grid + viewer) -->
+<div class="gallery-modal" hidden aria-hidden="true">
+  <div class="gm-backdrop" data-close="true"></div>
+
+  <div class="gm-panel" role="dialog" aria-modal="true" aria-label="Photo gallery">
+    <div class="gm-topbar">
+      <button class="gm-back" type="button" aria-label="Back to grid" hidden>←</button>
+      <div class="gm-title">Gallery</div>
+      <button class="gm-close" type="button" aria-label="Close">×</button>
+    </div>
+
+    <!-- GRID -->
+    <div class="gm-grid" role="list"></div>
+
+    <!-- VIEWER -->
+    <div class="gm-viewer" hidden>
+      <button class="gm-prev" type="button" aria-label="Previous">‹</button>
+      <img class="gm-img" alt="">
+      <button class="gm-next" type="button" aria-label="Next">›</button>
+      <div class="gm-caption"></div>
+    </div>
+  </div>
+</div>
+
   <script src="script.js"></script>
+
+
 </body>
 </html>
