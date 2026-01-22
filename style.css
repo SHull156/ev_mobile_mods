@@ -262,8 +262,7 @@ section p:last-child {
   right: 0.5rem;
 }
 
-/* --- Mobile affordance UI (dots + hint) --- */
-/* Hidden everywhere by default; enabled only on mobile */
+/* Dots UI (hidden everywhere by default; enabled only on mobile) */
 .carousel-ui {
   display: none;
   align-items: center;
@@ -441,46 +440,47 @@ section p:last-child {
   text-decoration: underline;
 }
 
-/* Social */
-.social-links {
+/* Contact icon list (left column) */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   margin-top: 1rem;
+  flex: 0 0 auto;
 }
 
-.social-links a {
+.contact-links a {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   color: var(--text);
   text-decoration: none;
   font-size: 0.95rem;
-  padding: 0.4rem 0.75rem;
+  padding: 0.2rem 0.75rem;
   border-radius: 999px;
   transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
 }
 
-.social-links a svg {
+.contact-links a svg {
   width: 18px;
   height: 18px;
   fill: var(--tesla-red);
+  flex-shrink: 0;
 }
 
-.social-links a:hover {
+.contact-links a:hover {
   background: var(--tesla-red-soft);
   color: var(--tesla-red);
 }
 
-/* Contact bottom row: Instagram + logos */
+/* Contact bottom row: links + partner logos */
 .contact-bottom-row {
   margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
-}
-
-/* Don’t let social block stretch */
-.social-links {
-  flex: 0 0 auto;
 }
 
 /* Logo marquee */
@@ -490,6 +490,14 @@ section p:last-child {
   position: relative;
   max-width: 760px;
   margin-left: auto;
+}
+
+/* Desktop: push the logo strip itself to the right edge */
+@media (min-width: 769px) {
+  .partner-marquee {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 .partner-track {
@@ -747,13 +755,11 @@ section p:last-child {
     max-width: 100%;
     margin: 0 auto;
 
-    /* enable native swipe scrolling */
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 
-    /* side padding so first/last can center nicely */
     padding: 0 1rem 0.75rem;
   }
 
@@ -762,7 +768,6 @@ section p:last-child {
     transition: none;
   }
 
-  /* key: less than 100% so next slide peeks in */
   .carousel-item {
     flex: 0 0 86%;
     max-width: 420px;
@@ -781,7 +786,6 @@ section p:last-child {
     display: none;
   }
 
-  /* show dots + hint only on mobile */
   .carousel-ui {
     display: flex;
   }
@@ -818,6 +822,7 @@ section p:last-child {
     width: 100%;
     max-width: 100%;
     margin-left: 0;
+    margin-top: 2rem; 
   }
 
   /* Auto-scrolling mini carousel */
